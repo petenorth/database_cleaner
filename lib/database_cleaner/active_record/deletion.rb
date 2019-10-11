@@ -100,7 +100,7 @@ module DatabaseCleaner::ActiveRecord
       connection = connection_class.connection
       connection.disable_referential_integrity do
         tables_to_truncate(connection).each do |table_name|
-          puts "deleting table #{table_name}" 
+          Rails.logger.info "deleting table #{table_name}" 
           connection.delete_table table_name
         end
       end
