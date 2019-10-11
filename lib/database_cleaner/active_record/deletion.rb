@@ -121,8 +121,7 @@ GROUP BY nsp, tbl
 ORDER BY max(level) DESC;
         }
        
-        tables = records_array.column_values(0)
-        tables.each {|st| puts st}
+        tables = records_array.column_values(0)  - @tables_to_exclude
 
         tables.each do |table_name|
           connection.delete_table table_name
